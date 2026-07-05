@@ -2,7 +2,6 @@
 
 ## Frontend
 
-- [Availability slice](./tasks/active/availability-slice.md)
 - [Bookings slice](./tasks/active/bookings-slice.md)
 
 ## Verification

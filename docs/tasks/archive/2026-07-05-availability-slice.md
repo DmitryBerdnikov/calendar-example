@@ -30,4 +30,6 @@ Availability управляет генерацией будущих slots для
 - Organizer может управлять mocked weekly availability.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Organizer может открыть `/availability`, увидеть mocked weekly availability rules, создать новое правило, отредактировать существующее правило и удалить правило.
+- UI валидирует локальное время в формате `HH:mm` и блокирует сохранение, если `startTime >= endTime`.
+- После успешных create/edit/delete UI обновляет список локально, чтобы stateless Prism mock не скрывал результат mutation.
