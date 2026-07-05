@@ -8,6 +8,10 @@ Scheduling is the context for configuring appointment types, publishing them to 
 A person who owns event types, availability, and bookings, and can manage them after signing in.
 _Avoid_: Account, user, host
 
+**Organizer Session**:
+A time-limited authenticated access period for an organizer after successful sign-in.
+_Avoid_: Login, token, cookie
+
 **Guest**:
 A person who books time with an organizer without signing in.
 _Avoid_: Customer, attendee, visitor

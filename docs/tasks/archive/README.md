@@ -22,3 +22,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Backend Plan Tracking](./2026-07-05-backend-plan-tracking.md)
 - [API App Scaffold](./2026-07-05-api-app-scaffold.md)
 - [API SQLite Foundation](./2026-07-05-api-sqlite-foundation.md)
+- [API Auth](./2026-07-05-api-auth.md)
