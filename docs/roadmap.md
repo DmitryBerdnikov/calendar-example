@@ -1,9 +1,5 @@
 # Roadmap
 
-## Mocking And Docs
-
-- [Prism mock](./tasks/active/prism-mock.md)
-
 ## Frontend
 
 - [Web app scaffold](./tasks/active/web-app-scaffold.md)

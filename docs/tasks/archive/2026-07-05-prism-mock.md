@@ -20,7 +20,7 @@
 
 - Выполнить `pnpm api:generate`.
 - Запустить `pnpm api:mock`.
-- Выполнить `curl http://localhost:4010/event-types`.
+- Выполнить `curl -i -H 'Authorization: Bearer dev-token' http://127.0.0.1:4010/event-types`.
 - Ожидаемо: Prism возвращает example response для event types.
 
 ## Результат
@@ -29,4 +29,7 @@
 - Локальный Prism server отдает моковые ответы по MVP API.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Root `api:mock` запускает Prism через `@scheduling/api-contract`.
+- Prism читает `packages/api-contract/generated/openapi.yaml` и явно слушает `127.0.0.1:4010`.
+- `packages/api-contract/README.md` документирует генерацию OpenAPI, запуск mock server, base URL `http://localhost:4010` и smoke check для защищенного `/event-types`.
+- Smoke check вернул `200` и example JSON для event types.

@@ -6,7 +6,7 @@
   "scripts": {
     "api:check": "node scripts/check-openapi.mjs",
     "api:generate": "tsp compile tsp",
-    "api:mock": "prism mock generated/openapi.yaml",
+    "api:mock": "prism mock generated/openapi.yaml --host 127.0.0.1 --port 4010",
     "test:check-openapi": "node --test scripts/check-openapi.test.mjs"
   },
   "devDependencies": {
