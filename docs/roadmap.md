@@ -2,7 +2,6 @@
 
 ## Mocking And Docs
 
-- [Swagger UI](./tasks/active/swagger-ui.md)
 - [Prism mock](./tasks/active/prism-mock.md)
 
 ## Frontend

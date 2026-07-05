@@ -7,8 +7,12 @@
     "api:client:generate": "pnpm api:generate && pnpm --filter @scheduling/api-client run api:client:generate",
     "api:generate": "pnpm --filter @scheduling/api-contract run api:generate",
     "api:mock": "pnpm --filter @scheduling/api-contract run api:mock",
-    "docs:dev": "pnpm --filter @scheduling/docs run dev",
+    "docs:dev": "node packages/api-contract/scripts/preview-openapi.mjs",
     "web:dev": "pnpm --filter @scheduling/web run dev",
     "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "devDependencies": {
+    "open": "^11.0.0",
+    "swagger-ui-dist": "5.11.0"
   }
 }
