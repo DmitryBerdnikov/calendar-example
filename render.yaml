@@ -23,7 +23,6 @@ services:
   - type: web
     name: scheduling-web-staging
     runtime: static
-    plan: free
     autoDeployTrigger: checksPass
     buildCommand: corepack enable && corepack prepare pnpm@11.7.0 --activate && pnpm install --frozen-lockfile && pnpm api:client:generate && pnpm --filter @scheduling/web run build
     staticPublishPath: apps/web/dist
