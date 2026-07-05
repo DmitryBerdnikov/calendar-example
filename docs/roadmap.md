@@ -2,7 +2,6 @@
 
 ## Contract
 
-- [TypeSpec contract](./tasks/active/typespec-contract.md)
 - [OpenAPI contract check](./tasks/active/openapi-contract-check.md)
 - [Generated API client](./tasks/active/generated-api-client.md)
 

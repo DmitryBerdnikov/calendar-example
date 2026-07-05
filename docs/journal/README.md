@@ -2,7 +2,7 @@
 
 This directory contains chat-based learning records for the project.
 
-Each entry captures what happened in one chat: prompts from the human, decisions made by the human, AI work, verification, and result. Journal entries are independent from task files; a task may be related, but it does not own a journal entry.
+Each entry captures what happened in one chat: prompts from the human, short AI responses, decisions made by the human, AI work, verification, and result. Journal entries are independent from task files; a task may be related, but it does not own a journal entry.
 
 Use `_template.md` for new entries. Real entries use `N-chat-slug.md`, where `N-chat-slug` is the work id:
 
@@ -19,7 +19,7 @@ The branch for a journal entry uses the same value as the work id, without `.md`
 
 ## Entry Rules
 
-- Record important user prompts verbatim.
+- Record important user prompts verbatim and the AI's short response to each prompt.
 - Separate human decisions from AI actions.
 - Record commands and short verification outcomes.
 - Link related tasks and the matching branch when useful.

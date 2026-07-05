@@ -1,0 +1,1028 @@
+openapi: 3.0.0
+info:
+  title: Scheduling API
+  version: 0.1.0
+tags:
+  - name: Auth
+  - name: Event Types
+  - name: Public Booking
+  - name: Availability
+  - name: Bookings
+paths:
+  /auth/login:
+    post:
+      operationId: Auth_login
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      security:
+        - {}
+  /auth/me:
+    get:
+      operationId: Auth_me
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Auth
+  /availability:
+    get:
+      operationId: Availability_list
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailabilityRule'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Availability
+    post:
+      operationId: Availability_create
+      parameters: []
+      responses:
+        '201':
+          description: The request has succeeded and a new resource has been created as a result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailabilityRule'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Availability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailabilityRuleCreate'
+  /availability/{id}:
+    get:
+      operationId: Availability_get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailabilityRule'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Availability
+    patch:
+      operationId: Availability_update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailabilityRule'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Availability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailabilityRuleUpdate'
+    delete:
+      operationId: Availability_delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: 'There is no content to send for this request, but the headers may be useful. '
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Availability
+  /bookings:
+    get:
+      operationId: Bookings_list
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Booking'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Bookings
+  /bookings/{id}/cancel:
+    post:
+      operationId: Bookings_cancel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Bookings
+  /event-types:
+    get:
+      operationId: EventTypes_list
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventType'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+    post:
+      operationId: EventTypes_create
+      parameters: []
+      responses:
+        '201':
+          description: The request has succeeded and a new resource has been created as a result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventTypeCreate'
+  /event-types/{id}:
+    get:
+      operationId: EventTypes_get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+    patch:
+      operationId: EventTypes_update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventTypeUpdate'
+    delete:
+      operationId: EventTypes_delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: 'There is no content to send for this request, but the headers may be useful. '
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+  /event-types/{id}/activate:
+    post:
+      operationId: EventTypes_activate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+  /event-types/{id}/deactivate:
+    post:
+      operationId: EventTypes_deactivate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+        '401':
+          description: Access is unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Event Types
+  /public/event-types/{slug}:
+    get:
+      operationId: PublicBooking_getEventType
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Slug'
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicEventType'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Public Booking
+      security:
+        - {}
+  /public/event-types/{slug}/bookings:
+    post:
+      operationId: PublicBooking_createBooking
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Slug'
+      responses:
+        '201':
+          description: The request has succeeded and a new resource has been created as a result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicBookingConfirmation'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Public Booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicBookingCreate'
+      security:
+        - {}
+  /public/event-types/{slug}/slots:
+    get:
+      operationId: PublicBooking_listSlots
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Slug'
+        - name: from
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocalDate'
+          explode: false
+        - name: to
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocalDate'
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublicSlot'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Public Booking
+      security:
+        - {}
+security:
+  - BearerAuth: []
+components:
+  schemas:
+    AvailabilityRule:
+      type: object
+      required:
+        - id
+        - weekday
+        - startTime
+        - endTime
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+        weekday:
+          $ref: '#/components/schemas/Weekday'
+        startTime:
+          $ref: '#/components/schemas/LocalTime'
+        endTime:
+          $ref: '#/components/schemas/LocalTime'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: av_monday_morning
+        weekday: monday
+        startTime: '09:00'
+        endTime: '12:00'
+        createdAt: '2026-07-01T09:00:00Z'
+        updatedAt: '2026-07-01T09:00:00Z'
+    AvailabilityRuleCreate:
+      type: object
+      required:
+        - weekday
+        - startTime
+        - endTime
+      properties:
+        weekday:
+          $ref: '#/components/schemas/Weekday'
+        startTime:
+          $ref: '#/components/schemas/LocalTime'
+        endTime:
+          $ref: '#/components/schemas/LocalTime'
+      example:
+        weekday: monday
+        startTime: '09:00'
+        endTime: '12:00'
+    AvailabilityRuleUpdate:
+      type: object
+      properties:
+        weekday:
+          $ref: '#/components/schemas/Weekday'
+        startTime:
+          $ref: '#/components/schemas/LocalTime'
+        endTime:
+          $ref: '#/components/schemas/LocalTime'
+      example:
+        startTime: '10:00'
+        endTime: '13:00'
+    Booking:
+      type: object
+      required:
+        - id
+        - eventTypeId
+        - eventTypeTitle
+        - guestName
+        - guestEmail
+        - startAt
+        - endAt
+        - status
+        - cancelledAt
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+        eventTypeId:
+          type: string
+        eventTypeTitle:
+          type: string
+        guestName:
+          type: string
+        guestEmail:
+          $ref: '#/components/schemas/Email'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/BookingStatus'
+        cancelledAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: bk_1
+        eventTypeId: evt_30m_intro
+        eventTypeTitle: Intro Call
+        guestName: Maria Guest
+        guestEmail: maria@example.com
+        startAt: '2026-07-06T07:00:00Z'
+        endAt: '2026-07-06T07:30:00Z'
+        status: confirmed
+        cancelledAt: null
+        createdAt: '2026-07-05T12:00:00Z'
+        updatedAt: '2026-07-05T12:00:00Z'
+    BookingStatus:
+      type: string
+      enum:
+        - confirmed
+        - cancelled
+    Email:
+      type: string
+      format: email
+    ErrorCode:
+      type: string
+      enum:
+        - invalid_request
+        - unauthenticated
+        - forbidden
+        - not_found
+        - conflict
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          $ref: '#/components/schemas/ErrorCode'
+        message:
+          type: string
+        details: {}
+      example:
+        code: invalid_request
+        message: Request body is invalid.
+        details:
+          field: slug
+          issue: Must use lowercase letters, numbers, and hyphens.
+    EventType:
+      type: object
+      required:
+        - id
+        - title
+        - slug
+        - description
+        - durationMinutes
+        - isActive
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          $ref: '#/components/schemas/Slug'
+        description:
+          type: string
+        durationMinutes:
+          $ref: '#/components/schemas/PositiveInt'
+        isActive:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: evt_30m_intro
+        title: Intro Call
+        slug: intro-call
+        description: A short introductory call.
+        durationMinutes: 30
+        isActive: true
+        createdAt: '2026-07-01T09:00:00Z'
+        updatedAt: '2026-07-03T12:00:00Z'
+    EventTypeCreate:
+      type: object
+      required:
+        - title
+        - slug
+        - description
+        - durationMinutes
+        - isActive
+      properties:
+        title:
+          type: string
+        slug:
+          $ref: '#/components/schemas/Slug'
+        description:
+          type: string
+        durationMinutes:
+          $ref: '#/components/schemas/PositiveInt'
+        isActive:
+          type: boolean
+      example:
+        title: Intro Call
+        slug: intro-call
+        description: A short introductory call.
+        durationMinutes: 30
+        isActive: true
+    EventTypeUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          $ref: '#/components/schemas/Slug'
+        description:
+          type: string
+        durationMinutes:
+          $ref: '#/components/schemas/PositiveInt'
+        isActive:
+          type: boolean
+      example:
+        title: Discovery Call
+        durationMinutes: 45
+        isActive: true
+    LocalDate:
+      type: string
+      format: date
+    LocalTime:
+      type: string
+      pattern: ^([01][0-9]|2[0-3]):[0-5][0-9]$
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          $ref: '#/components/schemas/Email'
+        password:
+          type: string
+      example:
+        email: organizer@example.com
+        password: correct-horse-battery-staple
+    LoginResponse:
+      type: object
+      required:
+        - token
+        - user
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+      example:
+        token: mock-session-token
+        user:
+          id: usr_1
+          name: Alex Organizer
+          email: organizer@example.com
+          timezone: Europe/Moscow
+    PositiveInt:
+      type: integer
+      format: int32
+      minimum: 1
+    PublicBookingConfirmation:
+      type: object
+      required:
+        - id
+        - eventTypeTitle
+        - guestName
+        - guestEmail
+        - startAt
+        - endAt
+        - status
+      properties:
+        id:
+          type: string
+        eventTypeTitle:
+          type: string
+        guestName:
+          type: string
+        guestEmail:
+          $ref: '#/components/schemas/Email'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/BookingStatus'
+      example:
+        id: bk_1
+        eventTypeTitle: Intro Call
+        guestName: Maria Guest
+        guestEmail: maria@example.com
+        startAt: '2026-07-06T07:00:00Z'
+        endAt: '2026-07-06T07:30:00Z'
+        status: confirmed
+    PublicBookingCreate:
+      type: object
+      required:
+        - startAt
+        - guestName
+        - guestEmail
+      properties:
+        startAt:
+          type: string
+          format: date-time
+        guestName:
+          type: string
+        guestEmail:
+          $ref: '#/components/schemas/Email'
+      example:
+        startAt: '2026-07-06T07:00:00Z'
+        guestName: Maria Guest
+        guestEmail: maria@example.com
+    PublicEventType:
+      type: object
+      required:
+        - id
+        - title
+        - slug
+        - description
+        - durationMinutes
+        - isActive
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          $ref: '#/components/schemas/Slug'
+        description:
+          type: string
+        durationMinutes:
+          $ref: '#/components/schemas/PositiveInt'
+        isActive:
+          type: boolean
+      example:
+        id: evt_30m_intro
+        title: Intro Call
+        slug: intro-call
+        description: A short introductory call.
+        durationMinutes: 30
+        isActive: true
+    PublicSlot:
+      type: object
+      required:
+        - startAt
+        - endAt
+      properties:
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+      example:
+        startAt: '2026-07-06T07:00:00Z'
+        endAt: '2026-07-06T07:30:00Z'
+    Slug:
+      type: string
+      pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - email
+        - timezone
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          $ref: '#/components/schemas/Email'
+        timezone:
+          type: string
+          enum:
+            - Europe/Moscow
+      example:
+        id: usr_1
+        name: Alex Organizer
+        email: organizer@example.com
+        timezone: Europe/Moscow
+    Weekday:
+      type: string
+      enum:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - saturday
+        - sunday
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: Bearer
+servers:
+  - url: http://localhost:4010
+    description: Local Prism mock
+    variables: {}
