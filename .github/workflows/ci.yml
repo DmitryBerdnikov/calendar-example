@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.7.0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22.13.0
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm api:generate
+
+      - run: pnpm api:check
+
+      - run: pnpm api:client:generate
+
+      - name: Check generated artifacts are committed
+        run: git diff --exit-code -- packages/api-contract/generated/openapi.yaml packages/api-client/src/generated/openapi.d.ts
+
+      - run: pnpm typecheck
+
+      - run: pnpm --filter @scheduling/api test
+
+      - run: pnpm --filter @scheduling/web run build

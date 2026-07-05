@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: scheduling-api-staging
+    runtime: node
+    plan: free
+    autoDeployTrigger: checksPass
+    buildCommand: corepack enable && corepack prepare pnpm@11.7.0 --activate && pnpm install --frozen-lockfile
+    startCommand: pnpm --filter @scheduling/api db:setup && pnpm --filter @scheduling/api start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: API_DATABASE_PATH
+        value: /tmp/scheduling.sqlite
+      - key: API_CORS_ORIGINS
+        fromService:
+          type: web
+          name: scheduling-web-staging
+          envVarKey: RENDER_EXTERNAL_URL
+
+  - type: web
+    name: scheduling-web-staging
+    runtime: static
+    plan: free
+    autoDeployTrigger: checksPass
+    buildCommand: corepack enable && corepack prepare pnpm@11.7.0 --activate && pnpm install --frozen-lockfile && pnpm api:client:generate && pnpm --filter @scheduling/web run build
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: scheduling-api-staging
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

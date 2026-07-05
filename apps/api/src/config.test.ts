@@ -21,4 +21,21 @@ describe("createApiConfig", () => {
       }).databasePath,
     ).toBe("/tmp/scheduling-test.sqlite");
   });
+
+  it("uses Render PORT when API_PORT is not configured", () => {
+    expect(
+      createApiConfig({
+        PORT: "10000",
+      }).port,
+    ).toBe(10000);
+  });
+
+  it("prefers API_PORT over PORT", () => {
+    expect(
+      createApiConfig({
+        API_PORT: "4010",
+        PORT: "10000",
+      }).port,
+    ).toBe(4010);
+  });
 });
