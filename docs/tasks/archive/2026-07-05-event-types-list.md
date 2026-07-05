@@ -30,4 +30,9 @@
 - Organizer видит и управляет mocked event types list.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Organizer видит mocked event types list на `/event-types`.
+- Список читает Event Types через generated typed `apiClient` на основе OpenAPI contract.
+- Страница показывает title, slug, duration и active state.
+- Доступны preview link, edit link, delete с confirm modal, activate/deactivate actions.
+- После mutation UI показывает success/error feedback и перечитывает server truth, не подделывая state Prism.
+- Добавлен Playwright smoke для list page, action success, inactive activate state и mocked mutation error.

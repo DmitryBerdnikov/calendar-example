@@ -1,6 +1,6 @@
 import { Table, Text } from "@mantine/core";
 
-import { PageShell } from "../shared/ui/page-shell";
+import { PageShell } from "../../shared/ui/page-shell";
 
 export function AvailabilityPage() {
   return (

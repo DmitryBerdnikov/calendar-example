@@ -1,0 +1,1 @@
+export { EventTypeEditPage } from "./page";

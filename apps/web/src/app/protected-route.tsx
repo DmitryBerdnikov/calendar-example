@@ -4,7 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import type { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
-import { ApiRequestError, getCurrentOrganizer } from "../shared/session/auth-api";
+import { ApiRequestError } from "../shared/api/request-error";
+import { getCurrentOrganizer } from "../shared/session/auth-api";
 import {
   clearSessionToken,
   getSessionToken,

@@ -1,0 +1,1 @@
+export { EventTypePreviewPage } from "./page";

@@ -1,7 +1,7 @@
 import { Text } from "@mantine/core";
 import { useParams } from "react-router-dom";
 
-import { PageShell } from "../shared/ui/page-shell";
+import { PageShell } from "../../shared/ui/page-shell";
 
 export function EventTypePreviewPage() {
   const { id } = useParams();

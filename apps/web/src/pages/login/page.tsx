@@ -15,8 +15,8 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
-import { loginOrganizer } from "../shared/session/auth-api";
-import { setSessionToken } from "../shared/session/session-storage";
+import { loginOrganizer } from "../../shared/session/auth-api";
+import { setSessionToken } from "../../shared/session/session-storage";
 
 const loginSchema = z.object({
   email: z.string().email("Enter a valid email address"),

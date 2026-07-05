@@ -1,4 +1,4 @@
-import { PageShell } from "../shared/ui/page-shell";
+import { PageShell } from "../../shared/ui/page-shell";
 
 export function EventTypeNewPage() {
   return (

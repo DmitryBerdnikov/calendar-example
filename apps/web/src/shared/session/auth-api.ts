@@ -1,27 +1,11 @@
 import type {
-  ErrorResponse,
   LoginRequest,
   LoginResponse,
   Organizer,
 } from "@scheduling/api-client";
 
 import { apiClient } from "../api/client";
-
-export class ApiRequestError extends Error {
-  readonly status: number;
-  readonly body: ErrorResponse | undefined;
-
-  constructor(status: number, body: ErrorResponse | undefined) {
-    super(body?.message ?? "Request failed");
-    this.name = "ApiRequestError";
-    this.status = status;
-    this.body = body;
-  }
-}
-
-function throwIfError(status: number, error: ErrorResponse | undefined): never {
-  throw new ApiRequestError(status, error);
-}
+import { throwApiRequestError } from "../api/request-error";
 
 export async function loginOrganizer(
   credentials: LoginRequest,
@@ -31,7 +15,7 @@ export async function loginOrganizer(
   });
 
   if (!data) {
-    throwIfError(response.status, error);
+    throwApiRequestError(response.status, error);
   }
 
   return data;
@@ -45,7 +29,7 @@ export async function getCurrentOrganizer(token: string): Promise<Organizer> {
   });
 
   if (!data) {
-    throwIfError(response.status, error);
+    throwApiRequestError(response.status, error);
   }
 
   return data;

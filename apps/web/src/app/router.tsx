@@ -3,15 +3,15 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { AdminShell } from "./admin-shell";
 import { ProtectedRoute } from "./protected-route";
-import { AvailabilityPage } from "../pages/availability-page";
-import { BookingsPage } from "../pages/bookings-page";
-import { EventTypeEditPage } from "../pages/event-type-edit-page";
-import { EventTypeNewPage } from "../pages/event-type-new-page";
-import { EventTypePreviewPage } from "../pages/event-type-preview-page";
-import { EventTypesPage } from "../pages/event-types-page";
-import { LoginPage } from "../pages/login-page";
-import { NotFoundPage } from "../pages/not-found-page";
-import { PublicBookingPage } from "../pages/public-booking-page";
+import { AvailabilityPage } from "../pages/availability";
+import { BookingsPage } from "../pages/bookings";
+import { EventTypeEditPage } from "../pages/event-type-edit";
+import { EventTypeNewPage } from "../pages/event-type-new";
+import { EventTypePreviewPage } from "../pages/event-type-preview";
+import { EventTypesPage } from "../pages/event-types";
+import { LoginPage } from "../pages/login";
+import { NotFoundPage } from "../pages/not-found";
+import { PublicBookingPage } from "../pages/public-booking";
 
 function protectedPage(page: ReactElement) {
   return (
