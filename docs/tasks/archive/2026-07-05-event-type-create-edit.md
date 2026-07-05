@@ -24,10 +24,18 @@ Organizer должен управлять booking options, которые пот
 - Выполнить Playwright smoke для create/edit.
 - Ожидаемо: формы submit-ятся и показывают success/error states.
 
+Фактически выполнено:
+- `pnpm --filter @scheduling/web typecheck`: прошел.
+- `pnpm --filter @scheduling/web test:e2e`: 12 тестов прошли против Prism/Vite.
+- `git diff --check`: whitespace ошибок нет.
+
 ## Результат
 
 Ожидаемый результат:
 - Organizer может создать и отредактировать mocked event type.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Organizer может открыть `/event-types/new`, заполнить общую Event Type form и отправить `POST /event-types`.
+- Organizer может открыть `/event-types/:id/edit`, загрузить mocked event type через `GET /event-types/{id}` и сохранить полный snapshot через `PATCH /event-types/{id}`.
+- Create/edit success возвращает Organizer на `/event-types` и показывает success state.
+- Form validation и server error states покрыты Playwright smoke.

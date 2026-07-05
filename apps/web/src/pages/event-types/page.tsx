@@ -13,7 +13,7 @@ import type { EventType } from "@scheduling/api-client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Edit3, Eye, Power, PowerOff, Trash2 } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { apiClient } from "../../shared/api/client";
 import {
@@ -27,6 +27,10 @@ type Feedback = {
   color: "green" | "red";
   title: string;
   message: string;
+};
+
+type EventTypesLocationState = {
+  feedback?: Feedback;
 };
 
 type EventTypeAction = "activate" | "deactivate" | "delete";
@@ -74,9 +78,12 @@ function actionSuccessMessage(action: EventTypeAction, title: string): string {
 
 export function EventTypesPage() {
   const queryClient = useQueryClient();
+  const location = useLocation();
+  const locationState = location.state as EventTypesLocationState | null;
   const sessionToken = getSessionToken() ?? "";
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<EventType | null>(null);
+  const visibleFeedback = feedback ?? locationState?.feedback ?? null;
   const eventTypesQuery = useQuery({
     queryKey: eventTypesQueryKey,
     queryFn: async () => {
@@ -190,9 +197,9 @@ export function EventTypesPage() {
       action={{ label: "New event type", to: "/event-types/new" }}
     >
       <Stack gap="md">
-        {feedback ? (
-          <Alert color={feedback.color} title={feedback.title}>
-            {feedback.message}
+        {visibleFeedback ? (
+          <Alert color={visibleFeedback.color} title={visibleFeedback.title}>
+            {visibleFeedback.message}
           </Alert>
         ) : null}
         {eventTypesQuery.isPending ? (
