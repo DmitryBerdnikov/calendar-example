@@ -25,3 +25,8 @@ Organizer должен управлять public booking options через real
 
 Ожидаемый результат:
 - `/event-types` frontend slice может работать против persisted backend state.
+
+Фактический результат:
+- `apps/api` реализует authenticated Event Type CRUD, activate/deactivate, slug validation, duplicate slug conflict и delete conflict при existing bookings.
+- API tests покрывают auth requirement, list, create/get/update/delete, invalid slug, duplicate slug, empty update no-op, activation flow и delete conflict.
+- Curl smoke подтвердил login, list, create, update, deactivate и activate against persisted SQLite backend state.

@@ -7,7 +7,12 @@ import type { DatabaseConnection } from "./db/database";
 const sessionTtlMilliseconds = 24 * 60 * 60 * 1000;
 
 export type ErrorResponse = {
-  code: "invalid_request" | "unauthenticated";
+  code:
+    | "invalid_request"
+    | "unauthenticated"
+    | "forbidden"
+    | "not_found"
+    | "conflict";
   message: string;
   details?: unknown;
 };
@@ -117,6 +122,8 @@ export function createAuthService(dependencies: AuthDependencies) {
     },
   };
 }
+
+export type AuthService = ReturnType<typeof createAuthService>;
 
 export function extractBearerToken(
   authorizationHeader: string | undefined,

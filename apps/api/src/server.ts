@@ -12,6 +12,7 @@ import {
 } from "./auth";
 import { createApiConfig, type ApiConfig } from "./config";
 import { openDatabase, type DatabaseConnection } from "./db/database";
+import { registerEventTypeRoutes } from "./event-types";
 
 type HealthResponse = {
   status: "ok";
@@ -99,6 +100,12 @@ export async function createServer(
     }
 
     return organizer;
+  });
+
+  registerEventTypeRoutes(server, {
+    db,
+    authService,
+    now: dependencies.now,
   });
 
   return server;

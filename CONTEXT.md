@@ -20,6 +20,10 @@ _Avoid_: Customer, attendee, visitor
 A public booking option owned by an organizer, such as a named meeting type with a duration and booking rules.
 _Avoid_: Calendar event, meeting template
 
+**Event Type Slug**:
+A globally unique public identifier for an event type in booking URLs.
+_Avoid_: Per-organizer slug, URL alias
+
 **Booking**:
 A scheduled appointment created by a guest for an event type.
 _Avoid_: Reservation, appointment, calendar event

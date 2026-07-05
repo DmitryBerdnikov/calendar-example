@@ -4,7 +4,6 @@
 
 ## Backend
 
-- [API Event Types](./tasks/active/api-event-types.md)
 - [API Availability](./tasks/active/api-availability.md)
 - [API Public Slots](./tasks/active/api-public-slots.md)
 - [API Public Bookings](./tasks/active/api-public-bookings.md)
