@@ -15,3 +15,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Login Slice](./2026-07-05-login-slice.md)
 - [Event Types List](./2026-07-05-event-types-list.md)
 - [Event Type Create And Edit](./2026-07-05-event-type-create-edit.md)
+- [Public Booking Flow](./2026-07-05-public-booking-flow.md)

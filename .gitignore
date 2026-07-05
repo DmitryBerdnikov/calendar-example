@@ -4,6 +4,7 @@ dist/
 build/
 .vite/
 coverage/
+apps/web/test-results/
 .env
 .env.*
 !.env.example

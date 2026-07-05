@@ -31,4 +31,5 @@
 - Guest может пройти mocked public booking flow без login.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Guest может пройти mocked public booking flow на `/book/:slug` без login: загрузить public event type, выбрать слот в календаре, заполнить `guestName`/`guestEmail`, отправить booking и увидеть confirmation.
+- Organizer может открыть `/event-types/:id/preview`, увидеть тот же booking UI в admin shell и проверить slots/form без создания booking.

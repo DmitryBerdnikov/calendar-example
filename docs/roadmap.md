@@ -2,7 +2,6 @@
 
 ## Frontend
 
-- [Public booking flow](./tasks/active/public-booking-flow.md)
 - [Availability slice](./tasks/active/availability-slice.md)
 - [Bookings slice](./tasks/active/bookings-slice.md)
 

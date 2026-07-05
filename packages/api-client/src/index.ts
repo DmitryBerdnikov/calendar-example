@@ -18,6 +18,8 @@ export type PublicEventType = ApiComponents["schemas"]["PublicEventType"];
 export type AvailabilityRule = ApiComponents["schemas"]["AvailabilityRule"];
 export type Booking = ApiComponents["schemas"]["Booking"];
 export type PublicSlot = ApiComponents["schemas"]["PublicSlot"];
+export type PublicBookingConfirmation =
+  ApiComponents["schemas"]["PublicBookingConfirmation"];
 
 export type CreateApiClientOptions = Parameters<typeof createClient<ApiPaths>>[0];
 
