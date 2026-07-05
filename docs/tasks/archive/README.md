@@ -17,3 +17,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Event Type Create And Edit](./2026-07-05-event-type-create-edit.md)
 - [Public Booking Flow](./2026-07-05-public-booking-flow.md)
 - [Availability Slice](./2026-07-05-availability-slice.md)
+- [Bookings Slice](./2026-07-05-bookings-slice.md)
