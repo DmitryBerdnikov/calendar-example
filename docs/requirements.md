@@ -76,11 +76,13 @@ Build a basic Cal.com-style scheduling app without subscription or billing featu
 
 ## Backend
 
-- Backend implementation is out of the current delivery scope.
+- Backend implementation starts after mocked frontend verification.
 - Runtime: Node.js.
 - HTTP framework: Fastify.
 - Validation: Zod.
 - Database: SQLite via `better-sqlite3`.
+- The backend binds to `127.0.0.1:4010` by default so it can replace the local Prism mock without frontend code changes.
+- The backend may expose local-only health or test helpers, but MVP application behavior must remain defined by the TypeSpec/OpenAPI contract.
 
 ## Frontend
 
@@ -104,6 +106,7 @@ Build a basic Cal.com-style scheduling app without subscription or billing featu
 - Excluded from MVP: location, price, buffers, booking limits, custom questions, reminders.
 - Preview shows the public booking flow for an event type even when `isActive = false`.
 - Guests can create bookings only for active event types.
+- Public slot lookup remains available for inactive event types so organizer preview can render the booking flow.
 - Deleting an event type with existing bookings is rejected with `409 Conflict`; organizers should deactivate it instead.
 
 ## Availability
@@ -131,5 +134,8 @@ Build a basic Cal.com-style scheduling app without subscription or billing featu
 - Cancelling a booking sets `status = cancelled` and `cancelledAt`; it does not delete the booking.
 - Public slot lookup is exposed as `GET /public/event-types/{slug}/slots?from=YYYY-MM-DD&to=YYYY-MM-DD`.
 - Slot starts are generated from availability rules using the event type `durationMinutes` as the step.
+- A slot is returned only when the full booking interval fits inside the availability rule.
+- Past slot starts are not returned.
 - Slots overlapping non-cancelled bookings are excluded.
+- Public booking creation rejects inactive event types, past starts, unavailable starts, and conflicts with non-cancelled bookings.
 - Excluded from MVP: guest cancellation links, notes, guest lists, rescheduling, meeting links.

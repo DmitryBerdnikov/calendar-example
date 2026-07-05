@@ -27,3 +27,7 @@ _Avoid_: Deletion, removal
 **Availability**:
 An organizer-owned weekly rule that defines when bookings may start.
 _Avoid_: Schedule, working hours, calendar
+
+**Slot**:
+A candidate booking time derived from availability and an event type duration. A slot is valid only when the full booking fits inside availability and does not overlap an active booking.
+_Avoid_: Time block, opening

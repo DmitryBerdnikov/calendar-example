@@ -19,3 +19,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Availability Slice](./2026-07-05-availability-slice.md)
 - [Bookings Slice](./2026-07-05-bookings-slice.md)
 - [Final Mocked MVP Verification](./2026-07-05-final-mocked-mvp-verification.md)
+- [Backend Plan Tracking](./2026-07-05-backend-plan-tracking.md)
