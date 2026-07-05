@@ -25,3 +25,8 @@
 
 Ожидаемый результат:
 - `apps/api` запускается как отдельный workspace package и готов принимать MVP routes в следующих задачах.
+
+Фактический результат:
+- Добавлен workspace package `@scheduling/api` с Fastify server factory, entrypoint, env config defaults, CORS и локальным `GET /health`.
+- Backend по умолчанию слушает `127.0.0.1:4010`; smoke verification выполнена на `API_PORT=4011`, потому что `4010` был занят Prism.
+- Добавлены Vitest smoke tests для config defaults, health endpoint и local CORS origin.
