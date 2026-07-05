@@ -28,4 +28,7 @@ TypeSpec является источником правды для Swagger, Pris
 - Полный MVP API описан в TypeSpec и генерирует OpenAPI.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Создан TypeSpec contract в `packages/api-contract/tsp/main.tsp`.
+- Настроена генерация OpenAPI через `packages/api-contract/tspconfig.yaml`.
+- Сгенерирован `packages/api-contract/generated/openapi.yaml` со всеми MVP paths, Bearer security и examples для Prism.
+- `pnpm api:generate` проходит успешно.

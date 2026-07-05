@@ -40,7 +40,7 @@ After the human writes that the task or tasks are done, the agent must:
 - name archived task files as `YYYY-MM-DD-task-slug.md`, for example `2026-07-05-workspace-scaffold.md`;
 - remove completed task rows from `docs/roadmap.md`;
 - add completed task links to `docs/tasks/archive/README.md`;
-- create or update the chat journal entry with prompts, decisions, AI work, verification evidence, result, and final commit information when relevant;
+- create or update the chat journal entry with prompts, short AI responses, decisions, AI work, verification evidence, result, and final commit information when relevant;
 - make one final Conventional Commit with a meaningful body;
 - merge the work item branch into `main`;
 - start the next work item from updated `main`.
@@ -59,7 +59,7 @@ After the human writes that the task or tasks are done, the agent must:
 - Journal file names add `.md` to the work id, for example `1-chat-planning-workflow.md`.
 - Branch names match journal work ids exactly, for example `2-workspace-scaffold`.
 - A journal entry is about the current chat, not about a task file.
-- Journal entries record key human prompts verbatim, human decisions, AI actions, verification, and result.
+- Journal entries record key human prompts verbatim, the AI's short response to each prompt, human decisions, AI actions, verification, and result.
 - Journal entries also include a short narrative summary of what happened and the key moments, so the project history is readable as a learning story.
 - A journal entry may link a related branch or task, but tasks do not link back to journal entries.
 - `README.md` and `_template.md` are reserved journal files that do not use kebab-case because they are not chat entries.
