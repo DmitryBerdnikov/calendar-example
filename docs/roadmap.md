@@ -2,7 +2,6 @@
 
 ## Contract
 
-- [OpenAPI contract check](./tasks/active/openapi-contract-check.md)
 - [Generated API client](./tasks/active/generated-api-client.md)
 
 ## Mocking And Docs

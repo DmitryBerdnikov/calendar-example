@@ -4,14 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "api:check": "node scripts/check-openapi.mjs",
     "api:generate": "tsp compile tsp",
-    "api:mock": "prism mock generated/openapi.yaml"
+    "api:mock": "prism mock generated/openapi.yaml",
+    "test:check-openapi": "node --test scripts/check-openapi.test.mjs"
   },
   "devDependencies": {
     "@stoplight/prism-cli": "^5.14.2",
     "@typespec/compiler": "^1.3.0",
     "@typespec/http": "^1.3.0",
     "@typespec/openapi": "^1.3.0",
-    "@typespec/openapi3": "^1.3.0"
+    "@typespec/openapi3": "^1.3.0",
+    "yaml": "^2.9.0"
   }
 }

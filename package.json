@@ -3,6 +3,7 @@
   "private": true,
   "packageManager": "pnpm@11.7.0",
   "scripts": {
+    "api:check": "pnpm --filter @scheduling/api-contract run api:check",
     "api:generate": "pnpm --filter @scheduling/api-contract run api:generate",
     "api:mock": "pnpm --filter @scheduling/api-contract run api:mock",
     "docs:dev": "pnpm --filter @scheduling/docs run dev",

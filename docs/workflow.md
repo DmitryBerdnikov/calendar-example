@@ -26,6 +26,8 @@ Start each work item chat with the related active task files and this workflow. 
 
 After the human reviews the work, they either request fixes or say the task is done.
 
+If the human says the implementation is ready for another review and asks to update the journal first, the agent must update the current journal entry before that review, but must not archive tasks, update roadmap, commit, merge, or switch branches yet.
+
 If the human requests any fix or change, the agent must:
 
 - make only the requested fixes;
