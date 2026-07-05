@@ -28,4 +28,6 @@
 - Есть frontend shell, готовый для feature slices.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Создан Vite React app в `apps/web`.
+- Настроены Mantine provider, React Router, TanStack Query и typed API client wiring.
+- Добавлены protected admin routes, public `/book/:slug`, route placeholders и базовая shell-разметка для будущих feature slices.

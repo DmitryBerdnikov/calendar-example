@@ -2,7 +2,6 @@
 
 ## Frontend
 
-- [Web app scaffold](./tasks/active/web-app-scaffold.md)
 - [Login slice](./tasks/active/login-slice.md)
 - [Event types list](./tasks/active/event-types-list.md)
 - [Event type create and edit](./tasks/active/event-type-create-edit.md)

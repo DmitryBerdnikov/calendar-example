@@ -1,0 +1,43 @@
+:root {
+  color: #111111;
+  background: #f7f7f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f7f7f7;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.app-title {
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.nav-stack {
+  display: grid;
+  gap: 4px;
+}
+
+.public-surface {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 247, 247, 0.94)),
+    #f7f7f7;
+}
