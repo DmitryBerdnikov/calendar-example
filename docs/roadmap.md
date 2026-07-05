@@ -4,7 +4,6 @@
 
 ## Backend
 
-- [API Auth](./tasks/active/api-auth.md)
 - [API Event Types](./tasks/active/api-event-types.md)
 - [API Availability](./tasks/active/api-availability.md)
 - [API Public Slots](./tasks/active/api-public-slots.md)

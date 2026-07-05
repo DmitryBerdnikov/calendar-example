@@ -1,7 +1,8 @@
 # AGENTS.md instructions
 
 - Make short answers.
-- Do not create a separate git branch unless the user explicitly asks for one.
+- Do not create a separate git branch at the start of a work item unless the user explicitly asks for one.
+- If the user accepts a completed task and asks to create a branch, create the work item branch before archiving, committing, or merging.
 - Do not commit completed task work until the user has reviewed it and explicitly accepted the task.
 - Normal task flow: implement, verify, report changes for review, wait for user acceptance, then commit only after the user asks or confirms.
 - When archiving a completed task, update all project tracking docs in the same work item: move the task to `docs/tasks/archive/`, remove it from `docs/roadmap.md`, add it to `docs/tasks/archive/README.md`, and update the current `docs/journal/` entry.
