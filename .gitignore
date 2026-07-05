@@ -5,6 +5,8 @@ build/
 .vite/
 coverage/
 apps/web/test-results/
+apps/api/data/*.sqlite
+apps/api/data/*.sqlite-*
 .env
 .env.*
 !.env.example

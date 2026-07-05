@@ -4,7 +4,6 @@
 
 ## Backend
 
-- [API SQLite Foundation](./tasks/active/api-sqlite-foundation.md)
 - [API Auth](./tasks/active/api-auth.md)
 - [API Event Types](./tasks/active/api-event-types.md)
 - [API Availability](./tasks/active/api-availability.md)

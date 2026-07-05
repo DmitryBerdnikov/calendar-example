@@ -25,3 +25,9 @@
 
 Ожидаемый результат:
 - Backend имеет повторяемую SQLite schema и seed state для дальнейших endpoint tasks.
+
+Фактический результат:
+- Добавлен SQLite foundation для `apps/api`: database path config, `better-sqlite3` connection, SQL migrations, idempotent seed и in-memory test database factory.
+- Seed создает одного organizer, active `intro-call` event type и weekday availability без bookings.
+- `db:setup` запускает migrations и seed для локальной dev database.
+- Повторяемость migrations и seed покрыта API tests.

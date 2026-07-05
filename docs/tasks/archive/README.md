@@ -21,3 +21,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Final Mocked MVP Verification](./2026-07-05-final-mocked-mvp-verification.md)
 - [Backend Plan Tracking](./2026-07-05-backend-plan-tracking.md)
 - [API App Scaffold](./2026-07-05-api-app-scaffold.md)
+- [API SQLite Foundation](./2026-07-05-api-sqlite-foundation.md)

@@ -1,4 +1,10 @@
+import { fileURLToPath } from "node:url";
+
 import { z } from "zod";
+
+const defaultDatabasePath = fileURLToPath(
+  new URL("../data/dev.sqlite", import.meta.url),
+);
 
 const defaultCorsOrigins = [
   "http://127.0.0.1:5173",
@@ -9,12 +15,14 @@ const envSchema = z.object({
   API_HOST: z.string().min(1).default("127.0.0.1"),
   API_PORT: z.coerce.number().int().positive().default(4010),
   API_CORS_ORIGINS: z.string().optional(),
+  API_DATABASE_PATH: z.string().min(1).default(defaultDatabasePath),
 });
 
 export type ApiConfig = {
   host: string;
   port: number;
   corsOrigins: string[];
+  databasePath: string;
 };
 
 export function createApiConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig {
@@ -24,6 +32,7 @@ export function createApiConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig
     host: parsedEnv.API_HOST,
     port: parsedEnv.API_PORT,
     corsOrigins: parseCorsOrigins(parsedEnv.API_CORS_ORIGINS),
+    databasePath: parsedEnv.API_DATABASE_PATH,
   };
 }
 
