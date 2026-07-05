@@ -30,4 +30,6 @@ Organizer admin routes должны быть защищены Bearer token, да
 - Organizer может пройти mocked login flow.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Organizer может пройти mocked login flow через `/login` с Prism credentials, получить mock Bearer token, пройти `/auth/me` проверку и попасть на `/event-types`.
+- Protected admin routes проверяют сохраненный token через `GET /auth/me`, очищают stale token на `401` и возвращают на `/login`.
+- Playwright smoke покрывает validation, default redirect, protected return-to redirect, stale token cleanup и local sign out.

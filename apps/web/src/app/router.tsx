@@ -16,7 +16,7 @@ import { PublicBookingPage } from "../pages/public-booking-page";
 function protectedPage(page: ReactElement) {
   return (
     <ProtectedRoute>
-      <AdminShell>{page}</AdminShell>
+      {(organizer) => <AdminShell organizer={organizer}>{page}</AdminShell>}
     </ProtectedRoute>
   );
 }

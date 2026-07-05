@@ -12,3 +12,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Swagger UI](./2026-07-05-swagger-ui.md)
 - [Prism Mock](./2026-07-05-prism-mock.md)
 - [Web App Scaffold](./2026-07-05-web-app-scaffold.md)
+- [Login Slice](./2026-07-05-login-slice.md)

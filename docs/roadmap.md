@@ -2,7 +2,6 @@
 
 ## Frontend
 
-- [Login slice](./tasks/active/login-slice.md)
 - [Event types list](./tasks/active/event-types-list.md)
 - [Event type create and edit](./tasks/active/event-type-create-edit.md)
 - [Public booking flow](./tasks/active/public-booking-flow.md)

@@ -2,15 +2,24 @@ import {
   AppShell,
   Box,
   Burger,
+  Button,
   Group,
   NavLink,
   Text,
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import type { Organizer } from "@scheduling/api-client";
+import { useQueryClient } from "@tanstack/react-query";
 import { CalendarCheck, Clock3, Layers3 } from "lucide-react";
 import type { ReactNode } from "react";
-import { NavLink as RouterNavLink, useLocation } from "react-router-dom";
+import {
+  NavLink as RouterNavLink,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
+import { clearSessionToken } from "../shared/session/session-storage";
 
 const navItems = [
   {
@@ -32,11 +41,20 @@ const navItems = [
 
 type AdminShellProps = {
   children: ReactNode;
+  organizer: Organizer;
 };
 
-export function AdminShell({ children }: AdminShellProps) {
+export function AdminShell({ children, organizer }: AdminShellProps) {
   const [opened, { toggle }] = useDisclosure();
   const location = useLocation();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  function handleSignOut() {
+    clearSessionToken();
+    queryClient.removeQueries({ queryKey: ["session", "organizer"] });
+    navigate("/login", { replace: true });
+  }
 
   return (
     <AppShell
@@ -56,9 +74,19 @@ export function AdminShell({ children }: AdminShellProps) {
               Scheduling
             </Title>
           </Group>
-          <Text size="sm" c="dimmed">
-            Admin
-          </Text>
+          <Group gap="sm">
+            <Text size="sm" c="dimmed">
+              {organizer.name}
+            </Text>
+            <Button
+              variant="subtle"
+              size="xs"
+              color="dark"
+              onClick={handleSignOut}
+            >
+              Sign out
+            </Button>
+          </Group>
         </Group>
       </AppShell.Header>
 
