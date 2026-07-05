@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/DmitryBerdnikov/calendar-example/compare/v1.0.0...v1.0.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* remove static render plan ([9d0d969](https://github.com/DmitryBerdnikov/calendar-example/commit/9d0d969da1f6bd10e52c32de4fa26a5bec9a1dcd))
+
 ## 1.0.0 (2026-07-05)
 
 
