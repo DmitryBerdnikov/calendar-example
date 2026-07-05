@@ -1,9 +1,5 @@
 # Roadmap
 
-## Contract
-
-- [Generated API client](./tasks/active/generated-api-client.md)
-
 ## Mocking And Docs
 
 - [Swagger UI](./tasks/active/swagger-ui.md)

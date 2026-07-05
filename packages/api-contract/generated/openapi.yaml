@@ -52,7 +52,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Organizer'
         '401':
           description: Access is unauthorized.
           content:
@@ -868,19 +868,42 @@ components:
       type: object
       required:
         - token
-        - user
+        - organizer
       properties:
         token:
           type: string
-        user:
-          $ref: '#/components/schemas/User'
+        organizer:
+          $ref: '#/components/schemas/Organizer'
       example:
         token: mock-session-token
-        user:
+        organizer:
           id: usr_1
           name: Alex Organizer
           email: organizer@example.com
           timezone: Europe/Moscow
+    Organizer:
+      type: object
+      required:
+        - id
+        - name
+        - email
+        - timezone
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          $ref: '#/components/schemas/Email'
+        timezone:
+          type: string
+          enum:
+            - Europe/Moscow
+      example:
+        id: usr_1
+        name: Alex Organizer
+        email: organizer@example.com
+        timezone: Europe/Moscow
     PositiveInt:
       type: integer
       format: int32
@@ -985,29 +1008,6 @@ components:
     Slug:
       type: string
       pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
-    User:
-      type: object
-      required:
-        - id
-        - name
-        - email
-        - timezone
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        email:
-          $ref: '#/components/schemas/Email'
-        timezone:
-          type: string
-          enum:
-            - Europe/Moscow
-      example:
-        id: usr_1
-        name: Alex Organizer
-        email: organizer@example.com
-        timezone: Europe/Moscow
     Weekday:
       type: string
       enum:

@@ -8,3 +8,4 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 - [Workspace Scaffold](./2026-07-05-workspace-scaffold.md)
 - [TypeSpec Contract](./2026-07-05-typespec-contract.md)
 - [OpenAPI Contract Check](./2026-07-05-openapi-contract-check.md)
+- [Generated API Client](./2026-07-05-generated-api-client.md)

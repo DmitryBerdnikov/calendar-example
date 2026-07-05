@@ -69,7 +69,7 @@ model ErrorResponse {
   email: "organizer@example.com",
   timezone: "Europe/Moscow",
 })
-model User {
+model Organizer {
   id: string;
   name: string;
   email: Email;
@@ -87,7 +87,7 @@ model LoginRequest {
 
 @extension("example", #{
   token: "mock-session-token",
-  user: #{
+  organizer: #{
     id: "usr_1",
     name: "Alex Organizer",
     email: "organizer@example.com",
@@ -96,7 +96,7 @@ model LoginRequest {
 })
 model LoginResponse {
   token: string;
-  user: User;
+  organizer: Organizer;
 }
 
 @extension("example", #{
@@ -318,7 +318,7 @@ namespace Auth {
 
   @get
   @route("/me")
-  op me(): User | Unauthorized;
+  op me(): Organizer | Unauthorized;
 }
 
 @tag("Event Types")

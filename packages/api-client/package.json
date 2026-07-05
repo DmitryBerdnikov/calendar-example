@@ -2,5 +2,19 @@
   "name": "@scheduling/api-client",
   "version": "0.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "api:client:generate": "openapi-typescript ../api-contract/generated/openapi.yaml --output src/generated/openapi.d.ts",
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.15.0"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.10.1",
+    "typescript": "^5.9.2"
+  }
 }
