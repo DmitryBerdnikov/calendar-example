@@ -1,8 +1,5 @@
 # Web App Scaffold
 
-Status: active
-Roadmap: Frontend
-Depends on: generated-api-client.md
 
 ## О чем
 

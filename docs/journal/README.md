@@ -8,13 +8,13 @@ Use `_template.md` for new entries. Real entries use `N-chat-slug.md`, where `N-
 
 ```text
 1-chat-planning-workflow.md
-2-chat-workspace-and-contract.md
+2-workspace-scaffold.md
 ```
 
 The branch for a journal entry uses the same value as the work id, without `.md`:
 
 ```text
-2-chat-workspace-and-contract
+2-workspace-scaffold
 ```
 
 ## Entry Rules

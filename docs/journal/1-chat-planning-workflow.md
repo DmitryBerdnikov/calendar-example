@@ -3,7 +3,8 @@
 Work id: `1-chat-planning-workflow`
 Date: 2026-07-05
 Related branch: `none`
-Related tasks: `none`
+Related tasks:
+- `docs/tasks/archive/2026-07-05-project-initialization.md`
 
 ## Контекст
 
@@ -130,7 +131,7 @@ Related task: `docs/tasks/active/task.md` или `none`
 ### Prompt 9
 
 ```text
-зафиксируй это, ветка будет называться как в формате таком 2-chat-workspace-and-contract
+зафиксируй это, ветка будет называться как в формате таком 2-workspace-scaffold
 ```
 
 ### Prompt 10
@@ -157,7 +158,7 @@ Related task: `docs/tasks/active/task.md` или `none`
 - Не менять формат commit message под work id; коммиты остаются по Conventional Commits, а шаги фиксируются в ветках.
 - Привязать ветку к journal work id, а не к отдельной task.
 - Разрешить одному journal/work item закрывать несколько задач.
-- Называть ветку точно как journal work id, например `2-chat-workspace-and-contract`.
+- Называть ветку точно как journal work id, например `2-workspace-scaffold`.
 - Использовать `main` как главную ветку вместо `master`.
 - Сохранить инициализацию проекта как один commit в рамках work item `1-chat-planning-workflow`.
 
@@ -202,4 +203,4 @@ Related task: `docs/tasks/active/task.md` или `none`
 
 ## Результат
 
-Инициализация проекта готова. Зафиксированы требования, доменный словарь, ADR, roadmap, active/archive task structure, workflow, project conventions и chat-based journal. Ветка теперь называется как journal work id, например `2-chat-workspace-and-contract`; один journal может покрывать несколько задач. Главная ветка должна быть `main`, а `master` удаляется после переноса текущего work item. Следующий рабочий чат может начинаться с work item `2-chat-workspace-and-contract`.
+Инициализация проекта готова. Зафиксированы требования, доменный словарь, ADR, roadmap, active/archive task structure, workflow, project conventions и chat-based journal. Ветка теперь называется как journal work id, например `2-workspace-scaffold`; один journal может покрывать несколько задач. Главная ветка должна быть `main`, а `master` удаляется после переноса текущего work item. Следующий рабочий чат может начинаться с work item `2-workspace-scaffold`.

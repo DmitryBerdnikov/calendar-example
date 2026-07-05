@@ -1,8 +1,5 @@
 # Bookings Slice
 
-Status: active
-Roadmap: Frontend
-Depends on: availability-slice.md
 
 ## О чем
 

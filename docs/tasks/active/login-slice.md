@@ -1,8 +1,5 @@
 # Login Slice
 
-Status: active
-Roadmap: Frontend
-Depends on: web-app-scaffold.md
 
 ## О чем
 

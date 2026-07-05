@@ -1,8 +1,5 @@
 # Event Type Create And Edit
 
-Status: active
-Roadmap: Frontend
-Depends on: event-types-list.md
 
 ## О чем
 

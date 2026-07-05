@@ -1,8 +1,5 @@
 # OpenAPI Contract Check
 
-Status: active
-Roadmap: Contract
-Depends on: typespec-contract.md
 
 ## О чем
 

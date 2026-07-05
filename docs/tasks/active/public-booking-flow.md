@@ -1,8 +1,5 @@
 # Public Booking Flow
 
-Status: active
-Roadmap: Frontend
-Depends on: event-type-create-edit.md
 
 ## О чем
 

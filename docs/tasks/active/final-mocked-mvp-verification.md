@@ -1,8 +1,5 @@
 # Final Mocked MVP Verification
 
-Status: active
-Roadmap: Verification
-Depends on: bookings-slice.md
 
 ## О чем
 

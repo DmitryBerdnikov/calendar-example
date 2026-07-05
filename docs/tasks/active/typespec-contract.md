@@ -1,8 +1,5 @@
 # TypeSpec Contract
 
-Status: active
-Roadmap: Contract
-Depends on: workspace-scaffold.md
 
 ## О чем
 

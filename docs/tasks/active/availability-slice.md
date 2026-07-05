@@ -1,8 +1,5 @@
 # Availability Slice
 
-Status: active
-Roadmap: Frontend
-Depends on: public-booking-flow.md
 
 ## О чем
 

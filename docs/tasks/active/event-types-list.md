@@ -1,8 +1,5 @@
 # Event Types List
 
-Status: active
-Roadmap: Frontend
-Depends on: login-slice.md
 
 ## О чем
 

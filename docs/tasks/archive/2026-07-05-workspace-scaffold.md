@@ -1,8 +1,5 @@
 # Workspace Scaffold
 
-Status: active
-Roadmap: Contract
-Depends on: none
 
 ## О чем
 
@@ -32,4 +29,6 @@ Depends on: none
 - В репозитории есть рабочий pnpm monorepo skeleton.
 
 Фактический результат:
-- Заполняется при архивировании.
+- Создан pnpm workspace skeleton с root config, lockfile, package manifests для `packages/api-contract`, `packages/api-client`, `apps/docs`, `apps/web` и placeholder `apps/api/.gitkeep`.
+- `pnpm install` видит all 5 workspace projects, включая root.
+- `pnpm -r exec pwd` видит package workspaces: `apps/docs`, `apps/web`, `packages/api-client`, `packages/api-contract`.

@@ -1,8 +1,5 @@
 # Swagger UI
 
-Status: active
-Roadmap: Mocking
-Depends on: typespec-contract.md
 
 ## О чем
 

@@ -4,4 +4,5 @@ Completed tasks are moved here from `docs/tasks/active/` after their factual res
 
 ## Completed Tasks
 
-No completed tasks yet.
+- [Project Initialization](./2026-07-05-project-initialization.md)
+- [Workspace Scaffold](./2026-07-05-workspace-scaffold.md)
